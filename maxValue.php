@@ -22,11 +22,11 @@ class MaxValueSolution
 //        $this->getValue(0, 0, 0);
 //        return $this->max_value;
 
-        $m = count($grid)-1;
-        $n = count($grid[0])-1;
+        $m = count($grid) - 1;
+        $n = count($grid[0]) - 1;
         for ($i = 0; $i <= $m; $i++) {
             for ($k = 0; $k <= $n; $k++) {
-                $grid[$i][$k] = max($grid[$i][$k-1] ?: 0, isset($grid[$i-1]) ? $grid[$i-1][$k] : 0) + $grid[$i][$k];
+                $grid[$i][$k] = max($grid[$i][$k - 1] ?: 0, isset($grid[$i - 1]) ? $grid[$i - 1][$k] : 0) + $grid[$i][$k];
             }
         }
         return $grid[$m][$n];
