@@ -7,7 +7,6 @@
  */
 class MoveZeroesSolution
 {
-
     /**
      * @param Integer[] $nums
      * @return NULL
