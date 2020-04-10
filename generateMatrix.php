@@ -24,10 +24,10 @@ class GenerateMatrixSolution
         $max = $n * $n;
         while ($index <= $max) {
             for ($i = $left; $i <= $right; $i++) $res[$top][$i] = $index++;
-            if ($index > $max) return $res;
+            if ($index > $max) break;
             $top++;
             for ($i = $top; $i <= $buttom; $i++) $res[$i][$right] = $index++;
-            if ($index > $max) return $res;
+            if ($index > $max) break;
             $right--;
             for ($i = $right; $i >= $left; $i--) $res[$buttom][$i] = $index++;
             if ($index > $max) break;
