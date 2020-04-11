@@ -28,4 +28,23 @@ class LengthOfLongestSubstringSolution
         }
         return max(count($result_ary), $max);
     }
+
+    /**
+     * 滑动窗口优化
+     * @param String $s
+     * @return Integer
+     */
+    function lengthOfLongestSubstring2($s)
+    {
+        $ary = [];
+        $max = 0;
+        for ($i = $j = 0; $i < strlen($s); $i++) {
+            if (isset($ary[$s[$i]]) && $ary[$s[$i]] >= $j) {
+                $max = max($max, ($i - $j));
+                $j = $ary[$s[$i]] + 1;
+            }
+            $ary[$s[$i]] = $i;
+        }
+        return $max = max($max, ($i - $j));
+    }
 }
