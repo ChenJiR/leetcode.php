@@ -19,16 +19,30 @@ class ReverseWordsSolution
      */
     function reverseWords_151($s)
     {
+        //正序
         $word = $res = "";
-        for ($i = strlen($s) - 1; $i >= 0; $i--) {
-            if ($s[$i] != " ") {
-                $word = $s[$i] . $word;
-            } else if ($word != "") {
-                $res .= $res ? " $word" : $word;
+        for($i=0;$i<strlen($s);$i++){
+            if($s[$i] == " "){
+                $word && $res = $res ? "$word $res" : $word;
                 $word = "";
+            }else{
+                $word .= $s[$i];
             }
         }
-        return $word ? ($res ? "$res $word" : $word) : $res;
+        $word && $res = $res ? "$word $res" : $word;
+        return $res;
+
+        //倒序
+//        $word = $res = "";
+//        for ($i = strlen($s) - 1; $i >= 0; $i--) {
+//            if ($s[$i] != " ") {
+//                $word = $s[$i] . $word;
+//            } else if ($word != "") {
+//                $res .= $res ? " $word" : $word;
+//                $word = "";
+//            }
+//        }
+//        return $word ? ($res ? "$res $word" : $word) : $res;
     }
 
     /**
