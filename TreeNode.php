@@ -14,6 +14,29 @@ class TreeNode
     {
         $this->val = $value;
     }
+
+    static function arrayToTree(array $ary)
+    {
+        $root = new static(array_shift($ary));
+        $floor = [$root];
+        while (!empty($ary)) {
+            $next_floor = [];
+            foreach ($floor as $item) {
+                $left = array_shift($ary);
+                if ($left) {
+                    $item->left = new static($left);
+                    $next_floor[] = $item->left;
+                }
+                $right = array_shift($ary);
+                if ($right) {
+                    $item->right = new static($right);
+                    $next_floor[] = $item->right;
+                }
+            }
+            $floor = $next_floor;
+        }
+        return $root;
+    }
 }
 
 /**
