@@ -38,4 +38,24 @@ class TrapSolution
 
         return $total_trap + array_sum($tmp) - $total_h;
     }
+
+    /**
+     * 双指针分别左右扫描投影，求出总面积 再减去柱子面积
+     * @param Integer[] $height
+     * @return Integer
+     */
+    function trap_2($height)
+    {
+        $left = $right = $h = 0;
+        $leftmax = $rightmax = 0;
+        for ($i = 0; $i < count($height); $i++) {
+            $h += $height[$i];
+            $j = count($height) - $i - 1;
+            $leftmax = max($leftmax, $height[$i]);
+            $rightmax = max($rightmax, $height[$j]);
+            $left += $leftmax;
+            $right += $rightmax;
+        }
+        return ($left + $right) - (count($height) * $leftmax) - $h;
+    }
 }
