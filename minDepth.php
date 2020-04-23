@@ -49,8 +49,11 @@ class MinDepthSolution
 
     function helper($floor, $root)
     {
+        if ($floor >= $this->min_floor) {
+            return;
+        }
         if (!$root->left && !$root->right) {
-            $this->min_floor = min($this->min_floor, $floor);
+            $this->min_floor = $floor;
             return;
         }
         $root->left && $this->helper($floor + 1, $root->left);
