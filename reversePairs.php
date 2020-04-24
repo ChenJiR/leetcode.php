@@ -104,5 +104,3 @@ class ReversePairsSolution
         return $res;
     }
 }
-
-var_dump((new ReversePairsSolution())->reversePairs_2([7, 5, 6, 4, 4, 6, 3, 2, 6, 2, 1, 6, 96, 4, 48, 5, 4, 3]));
