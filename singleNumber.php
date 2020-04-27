@@ -2,7 +2,7 @@
 
 /**
  * 1552. 面试题56 - II. 数组中数字出现的次数 II
- * 1560. 面试题56 - I. 数组中数字出现的次数
+ * 1608. 面试题56 - I. 数组中数字出现的次数
  *
  * 理想做法为位运算
  *
@@ -52,5 +52,20 @@ class SingleNumberSolution
             }
         }
         return $res;
+    }
+
+    /**
+     * 位运算
+     * @param $nums
+     * @return array
+     */
+    function singleNumbers_1608($nums)
+    {
+        $x = 0;
+        foreach ($nums as $n) $x ^= $n;
+        $k = $x & (-$x);
+        $a = $b = 0;
+        foreach ($nums as $n) $n & $k ? $a ^= $n : $b ^= $n;
+        return [$a, $b];
     }
 }
