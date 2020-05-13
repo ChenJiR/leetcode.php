@@ -1,13 +1,19 @@
 <?php
 
 /**
- * 1552. 面试题56 - II. 数组中数字出现的次数 II
- * 1608. 面试题56 - I. 数组中数字出现的次数
+ * 136. 只出现一次的数字
+ * https://leetcode-cn.com/problems/single-number/
+ * 260. 只出现一次的数字 III
+ * https://leetcode-cn.com/problems/single-number-iii/
+ *
+ * 1627. 面试题56 - I. 数组中数字出现的次数
+ * https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
+ * 1628. 面试题56 - II. 数组中数字出现的次数 II
+ * https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
  *
  * 理想做法为位运算
  *
  * Class SingleNumberSolution
- * https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/
  */
 class SingleNumberSolution
 {
@@ -59,7 +65,7 @@ class SingleNumberSolution
      * @param $nums
      * @return array
      */
-    function singleNumbers_1608($nums)
+    function singleNumbers_1627_260($nums)
     {
         $x = 0;
         foreach ($nums as $n) $x ^= $n;
@@ -67,5 +73,14 @@ class SingleNumberSolution
         $a = $b = 0;
         foreach ($nums as $n) $n & $k ? $a ^= $n : $b ^= $n;
         return [$a, $b];
+    }
+
+    function singleNumber_36($nums)
+    {
+        $res = 0;
+        foreach ($nums as $n) {
+            $res ^= $n;
+        }
+        return $res;
     }
 }
