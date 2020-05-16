@@ -33,4 +33,28 @@ class ListNode
         }
         return $res->next;
     }
+
+    /**
+     * 单向链表转换数组
+     * @param ListNode $listNode
+     * @return array
+     */
+    static function listToArray($listNode)
+    {
+        $res = [];
+        while ($listNode) {
+            $res[] = $listNode->val;
+            $listNode = $listNode->next;
+        }
+        return $res;
+    }
+
+    /**
+     * 打印链表
+     * @param ListNode $listNode
+     */
+    static function printList(ListNode $listNode)
+    {
+        echo "listNode: [" . implode(",", static::listToArray($listNode)) . "]";
+    }
 }
