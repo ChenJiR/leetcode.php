@@ -1,14 +1,15 @@
 <?php
 
 /**
- * 1503. 面试题09. 用两个栈实现队列
- * PHP没有栈的概念。。直接用数组进行操作，这里直接用了数组的原生API
+ * 1521. 剑指 Offer 09. 用两个栈实现队列
  * Class CQueue
  * https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/
  */
 class CQueue
 {
-    private $ary = [];
+    private $stack_1 = [];
+
+    private $stack_2 = [];
 
     /**
      */
@@ -22,7 +23,7 @@ class CQueue
      */
     function appendTail($value)
     {
-        $this->ary[] = $value;
+        $this->stack_1[] = $value;
     }
 
     /**
@@ -30,6 +31,15 @@ class CQueue
      */
     function deleteHead()
     {
-        return array_shift($this->ary) ?: -1;
+        if (empty($this->stack_2)) {
+            if (empty($this->stack_1)) {
+                return -1;
+            } else {
+                while (!empty($this->stack_1)) {
+                    $this->stack_2[] = array_pop($this->stack_1);
+                }
+            }
+        }
+        return array_pop($this->stack_2);
     }
 }
