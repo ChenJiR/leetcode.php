@@ -2,9 +2,14 @@
 
 /**
  * 1. 两数之和
- * 1562. 面试题57. 和为s的两个数字 (有稍微不同 1.输入数组有序 2. 要求输出数字而非下标)
- * Class TwoSumSolution
  * https://leetcode-cn.com/problems/two-sum/
+ *
+ * 167. 两数之和 II - 输入有序数组
+ * https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
+ *
+ * 1562. 面试题57. 和为s的两个数字 (有稍微不同 1.输入数组有序 2. 要求输出数字而非下标)
+ *
+ * Class TwoSumSolution
  */
 class TwoSumSolution
 {
@@ -59,6 +64,31 @@ class TwoSumSolution
     }
 
     /**
+     * 167 双指针解法
+     * @param Integer[] $numbers
+     * @param Integer $target
+     * @return Integer[]
+     */
+    function twoSum_167($numbers, $target)
+    {
+        $right = count($numbers) - 1;
+        $left = 0;
+        $result = [];
+        while ($left < $right) {
+            $sum = $numbers[$right] + $numbers[$left];
+            if ($sum > $target) {
+                $right--;
+            } else if ($sum < $target) {
+                $left++;
+            } else {
+                $result = [$left + 1, $right + 1];
+                break;
+            }
+        }
+        return $result;
+    }
+
+    /**
      * 1562 双指针解法
      * 左右两指针分别从数组两端开始遍历，因数组是有序的，所有两端的数值相加大于target则将右指针左移，小于target则左指针右移直到相等
      * 若左右指针碰头后还未找到，则无解返回空数组
@@ -66,7 +96,7 @@ class TwoSumSolution
      * @param Integer $target
      * @return Integer[]
      */
-    function twoSum3($nums, $target)
+    function twoSum_1562($nums, $target)
     {
         $right = count($nums) - 1;
         $left = 0;
@@ -84,4 +114,5 @@ class TwoSumSolution
         }
         return $result;
     }
+
 }
