@@ -2,12 +2,18 @@
 
 /**
  * 9. 面试题11. 旋转数组的最小数字
- * 153. 寻找旋转排序数组中的最小值
- * 154. 寻找旋转排序数组中的最小值 II
- * Class MinArraySolution
  * https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
+ *
+ * 153. 寻找旋转排序数组中的最小值
  * https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
+ *
+ * 154. 寻找旋转排序数组中的最小值 II
  * https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/
+ *
+ * 1546. 剑指 Offer 11. 旋转数组的最小数字
+ * https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
+ *
+ * Class MinArraySolution
  */
 class MinArraySolution
 {
